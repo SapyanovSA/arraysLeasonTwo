@@ -21,14 +21,24 @@ public class Main {
         //Задача 2
         System.out.println("Задача 2");
 
-        int[] cost_1 = {10_000, 20_000, 30_000, 50_000, 40_000};
+        int[] cost_1 = {30_000, 20_000, 50_000, 40_000, 10_000};
+        int maxCost = 0;
+        int minCost = 100_000;
 
-        Arrays.sort(cost_1);
-        int costMin = cost_1[0];
-        int costMax = cost_1[cost_1.length - 1];
+        for (int i : cost_1) {
 
-        System.out.println("Минимальная сумма трат за неделю составила " + costMin + " руб." +
-                "Максммальная сумма трат за неделю составила " + costMax + " руб.");
+            if (i > maxCost) {
+                maxCost = i;
+            }
+
+            if (i < minCost) {
+                minCost = i;
+            }
+
+        }
+
+        System.out.println("Минимальная сумма трат за неделю составила " + minCost
+                + " рублей. Максимальная сумма трат за неделю составила " + maxCost + " рублей.");
         System.out.println();
 
         // Задача 3
@@ -50,9 +60,16 @@ public class Main {
 
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
 
-        for (int index = reverseFullName.length - 1; index >= 0; index--) {
+        for (int i = 0; i < reverseFullName.length / 2; i++) {
 
-            System.out.print(reverseFullName[index]);
+            char save = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
+            reverseFullName[reverseFullName.length - 1 - i] = save;
+
+        }
+
+        for (char j : reverseFullName) {
+            System.out.print(j);
         }
 
     }
